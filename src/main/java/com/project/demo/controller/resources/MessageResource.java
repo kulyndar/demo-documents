@@ -16,4 +16,12 @@ public class MessageResource {
         this.message = MessageFormat.format(this.message, params);
         return this;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

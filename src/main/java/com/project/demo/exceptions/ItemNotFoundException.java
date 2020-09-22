@@ -1,6 +1,6 @@
 package com.project.demo.exceptions;
 
-public class ItemNotFoundException extends Exception {
+public class ItemNotFoundException extends RuntimeException {
 
     private long itemId;
 
@@ -9,8 +9,8 @@ public class ItemNotFoundException extends Exception {
         this.itemId = itemId;
     }
 
-    public static ItemNotFoundException build(Type type, long itemId){
-        switch (type){
+    public static ItemNotFoundException build(Type type, long itemId) {
+        switch (type) {
             case DOCUMENT:
                 return new ItemNotFoundException("Document with id {0} was not found", itemId);
             case PROTOCOL:

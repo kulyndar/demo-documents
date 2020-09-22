@@ -43,4 +43,24 @@ public class DocumentResource {
     public String getCreatedBy() {
         return createdBy;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
 }

@@ -1,13 +1,15 @@
 package com.project.demo.model;
 
 import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Document {
 
     @Id
@@ -28,7 +30,7 @@ public class Document {
     private String type;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "documents")
-    private Set<Protocol> protocol;
+    private Set<Protocol> protocols;
 
     public Document() {
     }
@@ -58,7 +60,15 @@ public class Document {
         return type;
     }
 
-    public Set<Protocol> getProtocol() {
-        return protocol;
+    public Set<Protocol> getProtocols() {
+        return protocols;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
